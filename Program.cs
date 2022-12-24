@@ -1,16 +1,22 @@
-﻿// Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
-// 0, 7, 8, -2, -2 -> 2
-// 1, -7, 567, 89, 223-> 3
-System.Console.WriteLine("Введите количество цифр, которое вы будете вводить");
-int N = Convert.ToInt32(Console.ReadLine());
-int[] array = new int [N];
-int count = 0;
-for (int i = 0; i < N; i++)
+﻿
+// Задача 43
+// Напишите программу, которая будет преобразовывать десятичное число в двоичное.
+// 45 -> 101101
+// 3 -> 11
+// 2 -> 10
+
+System.Console.WriteLine("Введите число");
+int Numb = Convert.ToInt32(Console.ReadLine());
+int left = 0;
+if (Numb == 0) System.Console.WriteLine("0");
+else if (Numb == 2) System.Console.WriteLine("10");
+else if (Numb != 0 || Numb != 2)
 {
-    System.Console.WriteLine($"Введите {i+1} число");
-    array [i] = Convert.ToInt32(Console.ReadLine());
-    if (array[i] > 0) count++;
+    while (Numb!=0)
+    {
+        left = Numb%2;
+        System.Console.Write(left);
+        Numb = Numb/2;
+    }
 }
-System.Console.WriteLine($"Введенные числа: {String.Join(", ", array)}");
-System.Console.WriteLine($"Количество введенных положительных чисел: {count}");
 
